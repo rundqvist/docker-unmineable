@@ -1,0 +1,35 @@
+{
+    "algo": "rx",
+    "api": {
+        "port": 0,
+        "access-token": null,
+        "worker-id": null,
+        "ipv6": false,
+        "restricted": true
+    },
+    "background": false,
+    "bind": [
+        "0.0.0.0:20000"
+    ],
+    "colors": true,
+    "donate-level": 1,
+    "mode": "nicehash",
+    "pools": [
+        {
+            "algo": "rx",
+            "coin": null,
+            "url": "rx.unmineable.com:3333",
+            "user": "COIN:WALLET.WORKER+DIFFICULTY#p0qy-qr2o",
+            "pass": "x",
+            "keepalive": true,
+            "variant": -1,
+            "tls": false,
+            "tls-fingerprint": null
+        }
+    ],
+    "retries": 2,
+    "retry-pause": 1,
+    "syslog": false,
+    "verbose": true,
+    "workers": true
+}
