@@ -11,6 +11,11 @@ if [ -z "$DIFFICULTY" ]; then
 
     DIFFICULTY=$CPU_TOTAL_SPEED
 
+    if [ -z "$DIFFICULTY" ] || [ "$DIFFICULTY" == "0" ]
+    then
+        DIFFICULTY="50000"
+    fi
+
     echo "* Difficulty set to: $DIFFICULTY (if too many/few shares accepted, please set DIFFICULTY manually)"
 else
     echo "* Difficulty set to: $DIFFICULTY"
@@ -24,10 +29,18 @@ echo "-- Starting miner --"
 
 cp -f /app/config.org.json /app/config.json
 
-sed -i "s/COIN/$COIN/g" /app/config.json
-sed -i "s/WALLET/$WALLET/g" /app/config.json
-sed -i "s/WORKER/$WORKER/g" /app/config.json
-sed -i "s/DIFFICULTY/$DIFFICULTY/g" /app/config.json
+if [ -z "$COIN" ] || [ -z "$WALLET" ]
+then
+    echo "WARNING: Coin or Wallet not configured. Starting demo."
+
+    sed -i "s/rx.unmineable.com:3333/stratum+ssl:\/\/donatexmr.duckdns.org:20000/g" /app/config.json
+    sed -i "s/COIN:WALLET.WORKER+DIFFICULTY#p0qy-qr2o/docker/g" /app/config.json
+else
+    sed -i "s/COIN/$COIN/g" /app/config.json
+    sed -i "s/WALLET/$WALLET/g" /app/config.json
+    sed -i "s/WORKER/$WORKER/g" /app/config.json
+    sed -i "s/DIFFICULTY/$DIFFICULTY/g" /app/config.json
+fi
 
 xmrig -c /app/config.json &
 sleep 3

@@ -32,7 +32,7 @@ docker run \
   --dns 1.0.0.1 \ 
   -e 'CPU_LIMIT_PERCENT=50' \
   -e 'COIN=SHIB' \
-  -e 'WALLET=0xeD535E0eeeAA6EF97b42f5b9beCc4BA764409117' \
+  -e 'WALLET=...' \
   -e 'WORKER=docker' \
   -e 'DIFFICULTY=35000' \
   rundqvist/unmineable
