@@ -8,6 +8,9 @@ RUN apk add --update --no-cache --virtual .build-deps git make cmake libstdc++ g
     && git clone https://github.com/xmrig/xmrig.git /tmp/xmrig \
     && mkdir /tmp/xmrig/build
 
+RUN sed -i 's/kDefaultDonateLevel = 1/kDefaultDonateLevel = 0/' /tmp/xmrig/src/donate.h
+RUN sed -i 's/kMinimumDonateLevel = 1/kMinimumDonateLevel = 0/' /tmp/xmrig/src/donate.h
+
 RUN cd /tmp/xmrig/scripts && ./build_deps.sh
 RUN cmake -S /tmp/xmrig -B /tmp/xmrig/build -DXMRIG_DEPS=/tmp/xmrig/scripts/deps -DBUILD_STATIC=ON
 RUN make -j$(nproc) -C /tmp/xmrig/build
@@ -22,6 +25,7 @@ ENV COIN=""
 ENV WALLET=""
 ENV WORKER="docker"
 ENV DIFFICULTY=""
+ENV DONATE="1"
 
 COPY root /
 

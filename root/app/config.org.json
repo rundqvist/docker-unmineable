@@ -12,7 +12,7 @@
         "0.0.0.0:20000"
     ],
     "colors": true,
-    "donate-level": 1,
+    "donate-level": DONATE,
     "mode": "nicehash",
     "pools": [
         {

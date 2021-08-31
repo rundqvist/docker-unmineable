@@ -25,6 +25,14 @@ echo "* Coin: $COIN"
 echo "* Wallet: $WALLET"
 echo "* Worker: $WORKER"
 
+test $DONATE -eq $DONATE &>/dev/null
+
+if [ $? -ne 0 ] || [ $DONATE -gt 99 ]
+then
+    DONATE=1
+fi
+echo "* Donate: $DONATE%"
+
 echo "-- Starting miner --"
 
 cp -f /app/config.org.json /app/config.json
@@ -41,6 +49,8 @@ else
     sed -i "s/WORKER/$WORKER/g" /app/config.json
     sed -i "s/DIFFICULTY/$DIFFICULTY/g" /app/config.json
 fi
+
+sed -i "s/DONATE/$DONATE/g" /app/config.json
 
 xmrig -c /app/config.json &
 sleep 3
