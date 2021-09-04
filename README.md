@@ -15,7 +15,7 @@ A user friendly crypto currency miner based on Alpine Linux and XMRig.
 ## Components
 * [Alpine Linux](https://www.alpinelinux.org)
 * [XMRig](https://xmrig.com)
-* [unMineable](https://unmineable.com/?ref=p0qy-qr2o)
+* [unMineable](https://unmineable.com/?ref=l7nr-nohw)
 
 ## Run
 ### To make a quick test
@@ -49,7 +49,7 @@ Example above uses 50% of cpu to mine Shiba Inu to the specified wallet.
 | Variable | Usage |
 |----------|-------|
 | CPU_LIMIT_PERCENT | Percentage of cpu to use for mining (digits only, 1-100). Default 50%. |
-| COIN | Currency supported by unMineable.<br />Example:<br/>- BTC<br />- DOGE<br />- XMR<br/>Please see [here](https://unmineable.com/coins?ref=p0qy-qr2o) for a complete list. |
+| COIN | Currency supported by unMineable.<br />Example:<br/>- BTC<br />- ETH<br />- DOGE<br />- XMR<br/>- ...and many more (please see [here](https://unmineable.com/coins?ref=l7nr-nohw) for a complete list). |
 | WALLET | Your wallet address for specified coin. |
 | WORKER | Name of your worker (default: docker). |
 | DIFFICULTY | Desired difficulty. |
