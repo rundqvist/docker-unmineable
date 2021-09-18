@@ -18,14 +18,16 @@ A user friendly crypto currency miner based on Alpine Linux and XMRig.
 * [unMineable](https://unmineable.com/?ref=l7nr-nohw)
 
 ## Run
-### To make a quick test
-Just run: 
+### Quick test
 ```
 docker run -d --name miner rundqvist/unmineable
 ```
 
-### To configure miner for your coin and wallet
-Replace the values with your desired cpu limit, coin and wallet, worker name and difficulty, and run:
+### Configure miner for your coin and wallet
+Replace the values in the sample code with your desired settings.<br />
+Examples uses 50% of cpu to mine Shiba Inu to the specified wallet.
+
+#### Docker run
 ```
 docker run \
   -d \
@@ -40,7 +42,30 @@ docker run \
   -e 'DONATE=1' \
   rundqvist/unmineable
 ```
-Example above uses 50% of cpu to mine Shiba Inu to the specified wallet.
+
+#### Docker compose
+```
+version: "3"
+services:
+  unmineable:
+    image: rundqvist/unmineable
+    container_name: unmineable
+    
+    restart: unless-stopped
+    
+    network_mode: bridge
+    
+    environment:
+      - CPU_LIMIT_PERCENT=50
+      - COIN=SHIB
+      - WALLET=...
+      - WORKER=docker
+      - DIFFICULTY=35000
+      - DONATE=1
+    
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+```
 
 ### Configuration
 
@@ -54,6 +79,9 @@ Example above uses 50% of cpu to mine Shiba Inu to the specified wallet.
 | WORKER | Name of your worker (default: docker). |
 | DIFFICULTY | Desired difficulty. |
 | DONATE | Percentage of cpu time to use for dev donation (digits only, 0-99). Default 1%. |
+
+## Tips
+Problem allocating memory or lower hashrate than expected? Try running container in privileged mode.
 
 ## Issues
 Please report issues at https://github.com/rundqvist/docker-unmineable/issues
