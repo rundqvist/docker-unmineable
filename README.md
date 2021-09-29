@@ -9,7 +9,7 @@ A user friendly crypto currency miner based on Alpine Linux and XMRig.
 ## Features
 * Easy to configure
 * Supports a wide range of currencies
-* Only 0,75% pool fee (default 1%)
+* Only 0,75% pool fee with referral code: <code>1bz8-v3i2</code> (default 1%)
 * Optional dev fee
 
 ## Components
