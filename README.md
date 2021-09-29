@@ -15,7 +15,7 @@ A user friendly crypto currency miner based on Alpine Linux and XMRig.
 ## Components
 * [Alpine Linux](https://www.alpinelinux.org)
 * [XMRig](https://xmrig.com)
-* [unMineable](https://unmineable.com/?ref=l7nr-nohw)
+* [unMineable](https://unmineable.com/?ref=1bz8-v3i2)
 
 ## Run
 ### Quick test
@@ -31,9 +31,7 @@ Examples uses 50% of cpu to mine Shiba Inu to the specified wallet.
 ```
 docker run \
   -d \
-  --name=miner \
-  --dns 1.1.1.1 \ 
-  --dns 1.0.0.1 \ 
+  --name=unmineable \
   -e 'CPU_LIMIT_PERCENT=50' \
   -e 'COIN=SHIB' \
   -e 'WALLET=...' \
@@ -74,7 +72,7 @@ services:
 | Variable | Usage |
 |----------|-------|
 | CPU_LIMIT_PERCENT | Percentage of cpu to use for mining (digits only, 1-100). Default 50%. |
-| COIN | Currency supported by unMineable.<br />Example:<br/>- BTC<br />- ETH<br />- DOGE<br />- XMR<br/>- ...and many more (please see [here](https://unmineable.com/coins?ref=l7nr-nohw) for a complete list). |
+| COIN | Currency supported by unMineable.<br />Example:<br/>- BTC<br />- ETH<br />- DOGE<br />- XMR<br/>- ...and many more (please see [here](https://unmineable.com/coins?ref=1bz8-v3i2) for a complete list). |
 | WALLET | Your wallet address for specified coin. |
 | WORKER | Name of your worker (default: docker). |
 | DIFFICULTY | Desired difficulty. |
